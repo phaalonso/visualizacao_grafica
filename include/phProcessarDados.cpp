@@ -7,6 +7,8 @@
 
 using namespace std;
 
+float escalaPonto = 1.5;
+
 /**
  * @brief Aloca um no da lista
  * 
@@ -248,19 +250,19 @@ void phDesenharPontoArvore(phPonto *ponto)
         phDesenharPonto(ponto);
         break;
     case CIRCULO:
-        phDesenhaCirculo(*ponto, 0.05);
+        phDesenhaCirculo(*ponto, 0.05 * escalaPonto);
         break;
     case ESFERA:
-        phDesenharEsfera(*ponto, 0.05);
+        phDesenharEsfera(*ponto, 0.05 * escalaPonto);
         break;
     case CUBO:
-        phDesenharCuboPonto(*ponto, 0.05);
+        phDesenharCuboPonto(*ponto, 0.05 * escalaPonto);
         break;
     case PIRAMIDE:
-        phDesenharPiramide(*ponto, 0.1);
+        phDesenharPiramide(*ponto, 0.1 * escalaPonto);
         break;
     case TRIANGULO:
-        phDesenharTriangulo(*ponto, 0.1);
+        phDesenharTriangulo(*ponto, 0.1 * escalaPonto);
         break;
     }
 }
