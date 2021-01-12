@@ -209,7 +209,7 @@ void phDesenharPiramide(phPonto ponto, float a)
 {
     // Aplica uma escala para alterar o objeto ao longo dos eixos coordenados
     GLfloat halfA = a / 2.0f;
-    std::cout << halfA << std::endl;
+    // std::cout << halfA << std::endl;
     // glScalef(2.0, 2.0, 2.0);
     GLfloat verticesPiramide[] = {
         // Triangulo lateral esquerdo

@@ -4,6 +4,9 @@
 #include "phProcessarDados.hpp"
 
 // def: variaveis globais de controle da visualizacao
+static float passoRotacao = 1;
+static float passoZoom = 1;
+
 float zoom_level = 0.0, zoom_min = 5.0f, zoom_max = 100.0f, rot_x = 0.0f, rot_y = 0.0f, rot_z = 0.0f;
 
 float inicioExito = -2.5, fimEixo = 2.5;
@@ -22,6 +25,8 @@ void processarTeclado(GLFWwindow *window, int key, int scancode, int action, int
  * Função para redimensionamento de janela
  */
 void ajustarJanela(GLFWwindow *window, int w, int h);
+
+void processarScroll(GLFWwindow *window, double xoffset, double yoffset);
 
 void desenharCena()
 {
@@ -100,6 +105,7 @@ void aplicarConfigInicial(GLFWwindow *window)
 
     //Configuração do registro de callbacks do glfw
     glfwSetKeyCallback(window, processarTeclado);
+    glfwSetScrollCallback(window, processarScroll);
 
     ajustarJanela(window, 200, 200);
 }
@@ -124,8 +130,6 @@ void ajustarJanela(GLFWwindow *window, int w, int h)
  */
 void processarTeclado(GLFWwindow *window, int key, int scancode, int action, int mode)
 {
-    static float passoRotacao = 1;
-    static float passoZoom = 1;
     std::cout << "Uma tecla foi pressionada " << key << std::endl;
 
     // Esc foi pressionado
@@ -198,4 +202,21 @@ void processarTeclado(GLFWwindow *window, int key, int scancode, int action, int
         std::cout << "- pressionado..zoom out: "
                   << rot_z << std::endl;
     }
+}
+
+/**
+ * @brief Realiza o zoom da tela utilizando o scroll do mouse
+ * 
+ * @param window 
+ * @param xoffset 
+ * @param yoffset 
+ */
+void processarScroll(GLFWwindow *window, double xoffset, double yoffset)
+{
+    // std::cout << xoffset << " " << yoffset << std::endl;
+
+    if (yoffset == 1)
+        zoom_level -= passoZoom;
+    else if (yoffset == -1)
+        zoom_level += passoZoom;
 }
