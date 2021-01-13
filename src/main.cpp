@@ -68,9 +68,10 @@ int main(void)
     else
         std::cout << "Funcionou glfw" << std::endl;
 
-    std::cout << "Os movimentos de tela podem ser feitos atraves do teclado, da mesma maneira que apresentado em aula" << std::endl;
-    std::cout << "Ou também através do scroll do mouse para zoom" << std::endl;
-    std::cout << "Ou pressionando o botão esquerdo do mouse" << std::endl;
+    std::cout << "Pressione o botão esquerdo e mova o mouse para controlar a camera" << std::endl;
+    std::cout << "Utilize o scroll para controlar o zoom" << std::endl;
+    std::cout << "Utilize + ou - para controlar a escala dos pontos" << std::endl;
+    std::cout << "Outros comandos de rotação, resetar o estado e movimentação também estão disponiveis de forma igual ao ultimo trabalho" << std::endl;
 
     /* Create a windowed mode window and its OpenGL context */
     window = glfwCreateWindow(600, 600, "View e projecao ortogonal", NULL, NULL);
@@ -194,6 +195,7 @@ void processarTeclado(GLFWwindow *window, int key, int scancode, int action, int
         std::cout << "(R)eset pressionado." << std::endl;
         rot_x = rot_y = rot_z = 0.0f;
         zoom_level = zoom_min;
+        escalaPonto = 1.5;
     }
     // zoom - teclado +-
     else if (key == GLFW_KEY_KP_ADD && action == GLFW_PRESS)
