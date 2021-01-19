@@ -51,7 +51,6 @@ void desenharCena()
     // phDesenharPiramide();
     phDesenharEixosOrigem(inicioExito, fimEixo);
     phDesenharGrid(inicioExito, fimEixo, 10);
-    // phInserirData(&data);
     phDesenharDados(dados);
 }
 
